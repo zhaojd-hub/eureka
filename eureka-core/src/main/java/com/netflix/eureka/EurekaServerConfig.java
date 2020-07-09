@@ -631,6 +631,7 @@ public interface EurekaServerConfig {
      * Get the configured binding strategy EIP or Route53.
      * @return the configured binding strategy
      */
+    //
     AwsBindingStrategy getBindingStrategy();
 
     /**

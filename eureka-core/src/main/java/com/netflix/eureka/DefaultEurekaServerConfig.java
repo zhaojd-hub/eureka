@@ -16,25 +16,15 @@
 
 package com.netflix.eureka;
 
-import javax.annotation.Nullable;
-import javax.inject.Singleton;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import com.netflix.config.ConfigurationManager;
-import com.netflix.config.DynamicBooleanProperty;
-import com.netflix.config.DynamicIntProperty;
-import com.netflix.config.DynamicPropertyFactory;
-import com.netflix.config.DynamicStringProperty;
-import com.netflix.config.DynamicStringSetProperty;
+import com.netflix.config.*;
 import com.netflix.eureka.aws.AwsBindingStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.Nullable;
+import javax.inject.Singleton;
+import java.io.IOException;
+import java.util.*;
 
 /**
  *
@@ -103,7 +93,7 @@ public class DefaultEurekaServerConfig implements EurekaServerConfig {
         ConfigurationManager.getConfigInstance().setProperty(
                 ARCHAIUS_DEPLOYMENT_ENVIRONMENT, env);
 
-        String eurekaPropsFile = EUREKA_PROPS_FILE.get();
+        String eurekaPropsFile = EUREKA_PROPS_FILE.get(); // eurekaPropsFile 对应的就是eureka-server
         try {
             // ConfigurationManager
             // .loadPropertiesFromResources(eurekaPropsFile);

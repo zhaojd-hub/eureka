@@ -170,6 +170,7 @@ public class EurekaBootStrap implements ServletContextListener {
         }
 
         // 第三步：处理注册相关的东西
+        // peers 大概你就认为是集群的意思  peer就是集群的一个实例
         PeerAwareInstanceRegistry registry;
         if (isAws(applicationInfoManager.getInfo())) {
             registry = new AwsInstanceRegistry(
@@ -189,7 +190,7 @@ public class EurekaBootStrap implements ServletContextListener {
             );
         }
 
-        // 第四步：处理peer节点相关的东西  test github account
+        // 第四步：处理peer节点相关的东西  这东西你大概认为他就是代表了eureka server的集群
         PeerEurekaNodes peerEurekaNodes = getPeerEurekaNodes(
                 registry,
                 eurekaServerConfig,
